@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result IIT-BHU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.download-btn{
+  position: relative;
+  background: #4285F4;
+  color: #fff;
+  width: 260px;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover{
+  background: #2874F3;
+}
+
+.download-btn i{
+  margin-left: 5px;
+}
+
+.countdown{
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.countdown span{
+  color: #0693F6;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.pleaseWait-text{
+  font-size: 1.1em;
+  font-weight: 600;
+  display: none;
+}
+
+.manualDownload-text{
+  font-size: 1.1em;
+  font-weight: 600;
+  display: none;
+}
+
+.manualDownload-link{
+  color: #0693F6;
+  font-weight: 800;
+  text-decoration: none;
+}
+      
+</style>
+<center>  <img src="https://th.bing.com/th/id/OIP.jrwYEpDsu8Svl8jDGPTZpQHaHh?pid=ImgDet&rs=1" width="25%" height="25%" top="10"></center> 
+    <div class="download-container">
+
+        <!-- <h1 class="text-center">
+            Get Result
+        </h1> -->
+        <form action="/sendresult" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="roll" placeholder="Enter Your Roll No." required id="">
+            </div>
+          
+            <div class="form-group">
+                <input type="hidden" class="form-control" name="sid" placeholder="SID" required id="">
+            </div>
+            <b>Select Year Semester for Grade Sheet(Even sem 2015-16 onwards) </b>
+
+            <select name="year_sem" id="year_sem" onchange="setSems()" width="300" style="width:300px">
+              <option value="0"> Select </option><option value="2022-23-1">Odd 2022-23</option><option value="2021-22-3">Summer 2021-22</option><option value="2021-22-2">Even 2021-22</option><option value="2021-22-1">Odd 2021-22</option><option value="2020-21-3">Summer 2020-21</option><option value="2020-21-2">Even 2020</option><option value="2020-21-1">Odd 2020</option><option value="2019-20-3">Summer 2019</option><option value="2019-20-2">Even Sem 2019</option><option value="2019-20-1">Odd Sem 2019</option><option value="2018-19-3">Summer 2018</option><option value="2018-19-2">Even Sem 2018</option><option value="2018-19-1">Odd Sem 2018</option><option value="2017-18-3">Summer 2017</option><option value="2017-18-2">Even Sem 2017</option><option value="2017-18-1">Odd Sem 2017</option><option value="2016-17-3">Summer 2016</option><option value="2016-17-2">Even Sem 2016</option><option value="2016-17-1">Odd Sem 2016</option><option value="2015-16-3">Summer Term 2015</option><option value="2015-16-2">Even Sem 2015</option>		</select>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block dbtn download-btn">
+                     Get the result <i class="fas fa-download"></i>
+                     <!-- <a href="#" class="download-btn">Download Files <i class="fas fa-download"></i></a> -->
+                </button>
+                <div class="countdown"></div>
+                <div class="pleaseWait-text">Please wait..</div>
+                <div class="manualDownload-text">
+                    If the download didn't start automatically, <a href="" class="manualDownload-link">click here.</a>
+                </div>
+            </div>
+            <!-- <button onclick="welcome()" class="countdown"></button> -->
+            <div class="pleasewait">Please Wait</div>
+            <div class="manual">If don't redirected automatically <a>click here</a></div>
+        </form>
+      
+    </div>
+    <script type="text/javascript">
+        const downloadBtn = document.querySelector(".download-btn");
+        const countdown = document.querySelector(".countdown");
+        const pleaseWaitText = document.querySelector(".pleaseWait-text");
+        const manualDownloadText = document.querySelector(".manualDownload-text");
+        const manualDownloadLink = document.querySelector(".manualDownload-link");
+        var timeLeft = 10;
+    
+        downloadBtn.addEventListener("click", () => {
+          downloadBtn.style.display = "none";
+          countdown.innerHTML = "Result will  automatically load in <span>" + timeLeft + "</span> seconds."; //for quick start of countdown
+    
+          var downloadTimer = setInterval(function timeCount(){
+            timeLeft -= 1;
+            countdown.innerHTML = "Result will automatically load in <span>" + timeLeft + "</span> seconds.";
+    
+            if(timeLeft <= 0){
+              clearInterval(downloadTimer);
+              pleaseWaitText.style.display = "block";
+              let download_href = "/"; //enter the downloadable file link URL here
+              window.location.href = download_href;
+              manualDownloadLink.href = download_href;
+    
+              setTimeout(() => {
+                pleaseWaitText.style.display = "none";
+                manualDownloadText.style.display = "block";
+              }, 4000);
+            }
+          }, 1000);
+        });
+        </script>
+</body>
+</html>
