@@ -10,10 +10,6 @@ const sidSchema=new mongoose.Schema({
         required:true,
         unique:true,
     },
-    date:{
-        type:Date,
-        default:Date.now
-    },
 });
 const sidModel=mongoose.model('sid',sidSchema);
 module.exports=sidModel;

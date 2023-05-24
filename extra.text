@@ -1,0 +1,33 @@
+// const KEYFILEPATH="./credentials.json"
+// const SCOPES=["https://www.googleapis.com/auth/drive"];
+// const auth =new google.auth.GoogleAuth({
+//     keyFile:KEYFILEPATH,
+//     scopes:SCOPES
+// });x
+
+// // const drive=google.drive({version:"v3",auth:auth});
+// async function createAndUploadFiles(auth,resultPath){
+//     const drive=google.drive({version:"v3",auth:auth});
+//     const fileMetadata={
+//         name:"shubham.png",
+//         // mimeType:"text/plain"
+//         'parents':['1Idr4JBoiEPyVsQvUocNLJOOeLFuz8D_V']
+//     };
+//     const media={
+//         mimeType:"image/png",
+//         body:fs.createReadStream(resultPath)
+//     };
+//     const res=await drive.files.create({
+//         resource:fileMetadata,
+//         media:media,
+//         fields:"id"
+//     });
+//     console.log("File Id:",res.data.id);
+//     //handle the response
+//     switch(res.status){
+//         case 200:
+//             console.log("File created successfully");
+//             break;
+//     }
+// }
+// createAndUploadFiles(auth);

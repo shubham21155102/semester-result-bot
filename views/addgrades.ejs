@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -93,9 +94,9 @@ body{
         <!-- <h1 class="text-center">
             Get Result
         </h1> -->
-        <form action="/sendresult" method="post">
+        <form action="/addgrades" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="roll" placeholder="Enter Your Roll No." required id="roll">
+                <input type="text" class="form-control" name="roll" placeholder="Enter Your Roll No." required id="">
             </div>
           
             <div class="form-group">
@@ -103,10 +104,10 @@ body{
             </div>
             <b>Select Year Semester for Grade Sheet(Even sem 2015-16 onwards) </b>
 
-            <select name="sem" id="year_sem" onchange="setSems()" width="300" style="width:300px">
-              <option value="0"> Select </option><option value="2022-23-2">Even 2022-23</option><option value="2022-23-1">Odd 2022-23</option><option value="2021-22-3">Summer 2021-22</option><option value="2021-22-2">Even 2021-22</option><option value="2021-22-1">Odd 2021-22</option><option value="2020-21-3">Summer 2020-21</option><option value="2020-21-2">Even 2020</option><option value="2020-21-1">Odd 2020</option><option value="2019-20-3">Summer 2019</option><option value="2019-20-2">Even Sem 2019</option><option value="2019-20-1">Odd Sem 2019</option><option value="2018-19-3">Summer 2018</option><option value="2018-19-2">Even Sem 2018</option><option value="2018-19-1">Odd Sem 2018</option><option value="2017-18-3">Summer 2017</option><option value="2017-18-2">Even Sem 2017</option><option value="2017-18-1">Odd Sem 2017</option><option value="2016-17-3">Summer 2016</option><option value="2016-17-2">Even Sem 2016</option><option value="2016-17-1">Odd Sem 2016</option><option value="2015-16-3">Summer Term 2015</option><option value="2015-16-2">Even Sem 2015</option>		</select>
+            <select name="year_sem" id="year_sem" onchange="setSems()" width="300" style="width:300px">
+              <option value="0"> Select </option><option value="2022-23-1">Odd 2022-23</option><option value="2021-22-3">Summer 2021-22</option><option value="2021-22-2">Even 2021-22</option><option value="2021-22-1">Odd 2021-22</option><option value="2020-21-3">Summer 2020-21</option><option value="2020-21-2">Even 2020</option><option value="2020-21-1">Odd 2020</option><option value="2019-20-3">Summer 2019</option><option value="2019-20-2">Even Sem 2019</option><option value="2019-20-1">Odd Sem 2019</option><option value="2018-19-3">Summer 2018</option><option value="2018-19-2">Even Sem 2018</option><option value="2018-19-1">Odd Sem 2018</option><option value="2017-18-3">Summer 2017</option><option value="2017-18-2">Even Sem 2017</option><option value="2017-18-1">Odd Sem 2017</option><option value="2016-17-3">Summer 2016</option><option value="2016-17-2">Even Sem 2016</option><option value="2016-17-1">Odd Sem 2016</option><option value="2015-16-3">Summer Term 2015</option><option value="2015-16-2">Even Sem 2015</option>		</select>
             <div class="form-group">
-                <button class="btn btn-danger btn-block dbtn download-btn" id="submit">
+                <button class="btn btn-danger btn-block dbtn download-btn">
                      Get the result <i class="fas fa-download"></i>
                      <!-- <a href="#" class="download-btn">Download Files <i class="fas fa-download"></i></a> -->
                 </button>
@@ -122,36 +123,5 @@ body{
         </form>
       
     </div>
-    <!-- <script type="text/javascript">
-        const downloadBtn = document.querySelector(".download-btn");
-        const countdown = document.querySelector(".countdown");
-        const pleaseWaitText = document.querySelector(".pleaseWait-text");
-        const manualDownloadText = document.querySelector(".manualDownload-text");
-        const manualDownloadLink = document.querySelector(".manualDownload-link");
-        var timeLeft = 10;
-    
-        downloadBtn.addEventListener("click", () => {
-          downloadBtn.style.display = "none";
-          countdown.innerHTML = "Result will  automatically load in <span>" + timeLeft + "</span> seconds."; //for quick start of countdown
-    
-          var downloadTimer = setInterval(function timeCount(){
-            timeLeft -= 1;
-            countdown.innerHTML = "Result will automatically load in <span>" + timeLeft + "</span> seconds.";
-    
-            if(timeLeft <= 0){
-              clearInterval(downloadTimer);
-              pleaseWaitText.style.display = "block";
-              let download_href = "/"; //enter the downloadable file link URL here
-              window.location.href = download_href;
-              manualDownloadLink.href = download_href;
-    
-              setTimeout(() => {
-                pleaseWaitText.style.display = "none";
-                manualDownloadText.style.display = "block";
-              }, 4000);
-            }
-          }, 1000);
-        });
-        </script> -->
 </body>
 </html>

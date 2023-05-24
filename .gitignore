@@ -1,2 +1,5 @@
 thunder_tests
 node_modules
+.env
+credentials.json
+extra.txt

@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.5",
     "body-parser": "^1.20.2",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
@@ -17,11 +18,14 @@
     "ejs": "^3.1.9",
     "exceljs": "^4.3.0",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "googleapis": "^114.0.0",
     "https": "^1.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^7.0.3",
     "nodemailer": "^6.9.1",
     "puppeteer": "^19.8.2",
+    "readline": "^1.3.0",
     "unix-timestamp": "^1.0.3",
     "ytdl": "^1.4.1"
   }

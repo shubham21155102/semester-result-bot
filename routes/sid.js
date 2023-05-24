@@ -16,6 +16,13 @@ router.post('/add',async(req,res)=>{
         console.log("Hii")
     }
 })
+router.get('/all',async(req,res)=>{
+    const data=await sidModel.find();
+    res.send(data);
+//    data.forEach((e)=>{
+//           res.send(e.roll);
+//     })
+})
 router.post('/sendresult',async(req,res)=>{
     var roll=req.body.roll;
     const data=await sidModel.findOne({
